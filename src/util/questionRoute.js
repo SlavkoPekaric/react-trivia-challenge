@@ -34,5 +34,3 @@ export const QuestionRoute = ({ component: Component, ...rest }) => (
     return <Component key={`${gameId}-${questionIndex}`} {...props} />
   }} />
 )
-
-// http://localhost:3000/75caaaae-2e4e-44d8-aa78-0c2f00a124fb/question/3
