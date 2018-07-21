@@ -79,11 +79,11 @@ export default class QuestionPage extends Component {
     // output voice and redirect on voice completion
     const speechText = `${decodeHtml(givenAnswer)}... is ${!correct ? 'in' : ''}correct`
     
-    speak(speechText, () => {
-      this.speechTimeout = setTimeout(() => {
-        this.setState({ redirect: this.props.nextStep })
-      }, 1000)
-    })
+    speak(speechText)
+    
+    this.redirectTimeout = setTimeout(() => {
+      this.setState({ redirect: this.props.nextStep })
+    }, 3000)
   }
 
   isAnswerCorrect(givenAnswer) {
@@ -123,12 +123,14 @@ export default class QuestionPage extends Component {
   }
 
   renderResult() {
-    const { givenAnswer, correctAnswer, nextStep } = this.state
+    const { givenAnswer, correctAnswer } = this.state
+    const { nextStep } = this.props
+    
     if (!givenAnswer || !correctAnswer) return;
 
     const resultText = givenAnswer === correctAnswer ? 'Correct' : 'Incorrect'
-    const btText = nextStep === 'results' ? 'Go to results' : 'Continue'
-    
+    const btText = nextStep.indexOf('results') !== -1 ? 'Go to results' : 'Continue'
+
     return (
       <div className="question-result-container">
         <div className="question-result-text">{resultText}</div>
@@ -154,7 +156,7 @@ export default class QuestionPage extends Component {
         <div className="question-number">
           {this.props.match.params.questionNum} of {this.props.total}
         </div>
-        { /*this.renderResult()*/ }
+        { this.renderResult() }
         <div className="page-footer">
           <button className="quit-btn" onClick={this.quitGame}>Quit</button>
         </div>
