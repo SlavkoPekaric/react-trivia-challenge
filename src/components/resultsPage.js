@@ -65,7 +65,7 @@ export default class ResultsPage extends Component {
 
 	render() {
   	// send user to first question page after the game data has loaded
-    if (this.state.redirect) return <Redirect to={`/${this.state.redirect}/question/1`} />;
+    if (this.state.redirect) return <Redirect push={true} to={`/${this.state.redirect}/question/1`} />;
 
     const { score } = this.props
 
