@@ -54,6 +54,7 @@ export default class Speaker {
 
 		this.utterThis.onerror = e => {
 	    console.log('An error has occurred with the speech synthesis: ' + e.error);
+	    if(typeof onComplete === 'function') onComplete(e);
 		}
 	}
 
