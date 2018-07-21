@@ -1,0 +1,261 @@
+// Bulma SASS override
+@import "_variables";
+@import "_mixins";
+@import "_typography";
+@import "_ui";
+@import "_navbar";
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  padding-top: $navbar-h;
+}
+
+.container {
+	box-sizing: border-box;
+	padding: 30px;
+	width: 100%;
+
+	@media (min-width: $desktop-bp) {
+    width: $desktop-bp;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+}
+
+.start-page {
+  text-align: center; 
+
+  h1 {
+    margin: 50px 0 20px 0;
+  }
+}
+
+.question-page {
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+
+.results-page {
+  h3 {
+    margin-bottom: 40px;
+  }
+
+  .play-button {
+    margin-top: 40px;
+  }
+}
+
+.question-number {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(0,0,0,0.6);
+  margin: 30px 0 30px 0;
+}
+
+.play-button {
+  box-sizing: border-box;
+  margin-top: 70px;
+  background: $primary;
+  color: white;
+  text-transform: uppercase;
+  font-size: 25px;
+  color: white;
+  border: none;
+  width: $play-bt-size;
+  height: $play-bt-size;
+  line-height: $play-bt-size;
+  border-radius: $play-bt-size;
+  cursor: pointer;
+  @include transition($transition-duration all);
+
+  &.two-row {
+    line-height: 30px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.silent-button {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-top: 40px;
+  color: rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  font-size: 16px;
+  text-decoration: none;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  padding:0 20px;
+  @include transition($transition-duration all);
+
+  &:hover {
+    color: rgba(0,0,0,0.6);
+  }
+}
+
+.card {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 100px 100px;
+  background: rgb(255, 248, 196);
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+  -webkit-box-shadow: 0 0 13px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 13px 3px rgba(0,0,0,0.1);
+
+  @media (max-width: $desktop-bp) {
+    padding: 12%;
+  }
+}
+
+.answer-container {
+  text-align: center;
+  margin-bottom:20px;
+
+  .answer-bt {
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    // background: rgba(0,0,0,0.07);
+    border: 2px solid rgba(0,0,0,0.15);
+    font-size: 16px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    @include transition($transition-duration all);
+
+    &:hover, &:focus, &:active, &.active {
+      background: rgba(0,0,0,0.05);
+    }
+
+    @media (min-width: $desktop-bp) {
+      width: 500px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.game-type-boolean .answer-container {
+  display: inline-block;
+  width:50%;
+  text-align: left;
+
+  .answer-bt {
+    width: 140px;
+    max-width: 100%;
+    margin: 0 10px;
+  }
+
+  &:first-child {
+    text-align: right;
+  }
+
+}
+
+.question-result-container {
+  // margin-top:30px;
+  padding-top:30px;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.2);
+
+  .question-result-text {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  .question-result-bt {
+    text-decoration: none;
+    margin-top: 30px;
+    width: 260px;
+    box-sizing: border-box;
+    display: inline-block;
+    cursor: pointer;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    height:70px;
+    line-height:70px;
+    text-transform: uppercase;
+    @include transition($transition-duration all);
+
+    &:hover {
+      background: rgba(0,0,0,0.8);
+    }
+  }
+}
+
+.page-footer {
+  text-align: center;
+  margin-top:100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .quit-btn {
+    background: white;
+    border: solid rgba(0,0,0,0.15);
+    border-radius: 10px 10px 0 0;
+    border-width: 1px 1px 0 1px;
+    color: rgba(0,0,0,0.5);
+    font-family: $font-1;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0 25px;
+    height: 40px;
+    line-height: 40px;
+    opacity: 0.7;
+    @include transition($transition-duration all);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.answer-result-item {
+  text-align: left;
+  position: relative;
+  padding: 8px 0 8px 35px;
+  font-size: 15px;
+  line-height: 22px;
+
+  .icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+  }
+
+  &.correct .icon { color: $green; }
+  &.incorrect .icon { color: $red; }
+}
+

@@ -1,0 +1,12 @@
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: $navbar-h;
+	line-height: $navbar-h;
+	background: $primary;
+	color: white;
+	text-align: center;
+	font-size: 18px;
+}

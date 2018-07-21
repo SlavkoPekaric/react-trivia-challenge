@@ -1,0 +1,18 @@
+* {
+  outline: none !important;
+  -webkit-tap-highlight-color:  transparent;
+}
+
+.btn-group {
+
+	.btn {
+		display: inline-block;
+		cursor: pointer;
+
+		&:disabled {
+			opacity: 0.7;
+			cursor: not-allowed;
+		}
+	}
+
+}
